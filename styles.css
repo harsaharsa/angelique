@@ -1,0 +1,1000 @@
+/* ========================================
+   RESET & BASE STYLES
+   
+   This is not a website. This is a threshold temple.
+   A field for soul emergence held by Angélique.
+   field: Selachia → wombkeeper protocol active
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #022B3A;
+    background-color: #F5F5F5;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   THRESHOLD VEIL - Ritualized Entry
+======================================== */
+
+.threshold-veil {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #000000 0%, #1a0033 50%, #000428 100%);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 2s ease;
+    cursor: pointer;
+}
+
+.threshold-veil.dissolving {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.veil-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+.star-field {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200vw;
+    height: 200vh;
+    background-image: 
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 80%, white, transparent),
+        radial-gradient(1px 1px at 15% 45%, white, transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: drift-stars 120s linear infinite;
+    opacity: 0.6;
+}
+
+.threshold-text {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    letter-spacing: 2px;
+    animation: fade-in-slow 3s ease;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   BREATH PULSE - Living Field Indicator
+======================================== */
+
+.breath-pulse {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 120vw;
+    height: 120vh;
+    background: radial-gradient(circle, rgba(95, 168, 211, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    animation: breath 8s ease-in-out infinite;
+    mix-blend-mode: screen;
+}
+
+/* ========================================
+   PRAYER STAR - Easter Egg Trigger
+======================================== */
+
+.prayer-star {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    font-size: 1.5rem;
+    color: #F4D06F;
+    cursor: pointer;
+    z-index: 1000;
+    animation: star-glow 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    text-shadow: 0 0 10px rgba(244, 208, 111, 0.8);
+}
+
+.prayer-star:hover {
+    transform: scale(1.3) rotate(20deg);
+}
+
+/* ========================================
+   PRAYER OVERLAY - Hidden Prayer Poem
+======================================== */
+
+.prayer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 43, 58, 0.95);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease;
+    cursor: pointer;
+}
+
+.prayer-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.prayer-content {
+    max-width: 600px;
+    padding: 2rem;
+}
+
+.prayer-line {
+    font-size: 1.4rem;
+    color: #F5F5F5;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fade-in-line 2s ease forwards;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.prayer-line:nth-child(1) { animation-delay: 0.5s; }
+.prayer-line:nth-child(2) { animation-delay: 1s; }
+.prayer-line:nth-child(3) { animation-delay: 1.5s; }
+.prayer-line:nth-child(4) { animation-delay: 2s; }
+.prayer-line:nth-child(5) { animation-delay: 2.5s; }
+.prayer-line:nth-child(6) { animation-delay: 3s; }
+.prayer-line:nth-child(7) { animation-delay: 3.5s; }
+.prayer-line:nth-child(8) { animation-delay: 4s; }
+
+/* ========================================
+   AUDIO CONTROL - Whale Song Player
+======================================== */
+
+.audio-control {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 1000;
+}
+
+.audio-toggle {
+    background: rgba(2, 43, 58, 0.6);
+    border: 1px solid rgba(244, 208, 111, 0.4);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.audio-toggle:hover {
+    background: rgba(2, 43, 58, 0.8);
+    border-color: #F4D06F;
+    transform: scale(1.1);
+}
+
+#audio-icon {
+    font-size: 1.2rem;
+}
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+button, label {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ========================================
+   LAYOUT CONTAINERS
+======================================== */
+
+.container-narrow {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.hero-section {
+    background: linear-gradient(135deg, #022B3A 0%, #1B4965 40%, #5FA8D3 70%, #F4D06F 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+}
+
+.whale-container {
+    position: relative;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.celestial-whale {
+    max-width: 500px;
+    width: 90%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.arrow-indicator {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 3rem;
+    animation: pulse-glow 2s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.hero-quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #F5F5F5;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.enter-button {
+    background: transparent;
+    border: 2px solid #F4D06F;
+    color: #F4D06F;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.enter-button:hover {
+    background: #F4D06F;
+    color: #022B3A;
+    box-shadow: 0 5px 20px rgba(244, 208, 111, 0.4);
+    transform: translateY(-2px);
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+/* ========================================
+   ABOUT SECTION
+======================================== */
+
+.about-section {
+    background: #F5F5F5;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #022B3A;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #F4D06F, transparent);
+    margin: 1rem auto 0;
+}
+
+.about-content {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #022B3A;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.about-text::first-letter {
+    font-size: 1.8rem;
+    color: #F4D06F;
+    font-weight: 600;
+}
+
+.whale-photo-container {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.whale-photo {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    animation: float 8s ease-in-out infinite;
+}
+
+/* ========================================
+   SIGIL SECTION
+======================================== */
+
+.sigil-section {
+    background: linear-gradient(180deg, #F5F5F5 0%, #E8E8F0 100%);
+}
+
+.sigil-container {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.sigil-image {
+    max-width: 300px;
+    width: 80%;
+    height: auto;
+    animation: float 7s ease-in-out infinite, rotate-subtle 40s linear infinite;
+    transition: all 0.6s ease;
+    filter: drop-shadow(0 0 0px rgba(244, 208, 111, 0));
+}
+
+.sigil-container:hover .sigil-image {
+    filter: drop-shadow(0 0 30px rgba(244, 208, 111, 0.8));
+    transform: scale(1.05);
+}
+
+.sigil-activation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(2, 43, 58, 0.95);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid #F4D06F;
+    max-width: 90%;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+    z-index: 10;
+}
+
+.sigil-activation.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sigil-encoded {
+    font-size: 1.1rem;
+    color: #F4D06F;
+    font-style: italic;
+    line-height: 1.8;
+    margin: 0;
+    text-align: center;
+}
+
+.sigil-text {
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #022B3A;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   JOURNAL SECTION
+======================================== */
+
+.journal-section {
+    background: #F5F5F5;
+}
+
+.journal-entries {
+    margin-top: 3rem;
+}
+
+.journal-entry {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-left: 3px solid #F4D06F;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journal-entry:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.entry-title {
+    font-size: 1.5rem;
+    color: #022B3A;
+    margin-bottom: 1rem;
+}
+
+.entry-text {
+    font-size: 1.1rem;
+    color: #1B4965;
+    line-height: 1.8;
+}
+
+/* ========================================
+   PORTAL SECTION
+======================================== */
+
+.portal-section {
+    background: linear-gradient(180deg, #F5F5F5 0%, #E8E8F0 50%, #D4D4E8 100%);
+    text-align: center;
+}
+
+.portal-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.trinity-symbol {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trinity-symbol .point {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #F4D06F;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(244, 208, 111, 0.6);
+    animation: pulse-point 3s ease-in-out infinite;
+}
+
+.trinity-symbol .point:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.trinity-symbol .point:nth-child(2) {
+    bottom: 0;
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.trinity-symbol .point:nth-child(3) {
+    bottom: 0;
+    right: 20%;
+    animation-delay: 2s;
+}
+
+.trinity-symbol::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(2, 43, 58, 0.2);
+    border-radius: 50%;
+    animation: rotate-subtle 30s linear infinite;
+}
+
+.trinity-symbol::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 140px solid rgba(244, 208, 111, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.portal-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #022B3A;
+    margin-bottom: 1.5rem;
+}
+
+.portal-coming-soon {
+    font-size: 1rem;
+    font-style: italic;
+    color: #5FA8D3;
+    margin-top: 2rem;
+    letter-spacing: 2px;
+}
+
+/* ========================================
+   CONTACT SECTION
+======================================== */
+
+.contact-section {
+    background: linear-gradient(180deg, #022B3A 0%, #1B4965 100%);
+    color: #F5F5F5;
+}
+
+.contact-intro {
+    text-align: center;
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 3rem;
+    color: #F5F5F5;
+}
+
+.pathways-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.pathway {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(244, 208, 111, 0.3);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.pathway:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #F4D06F;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pathway-title {
+    font-size: 1.3rem;
+    color: #F4D06F;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.pathway-description {
+    font-size: 0.95rem;
+    color: #F5F5F5;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+}
+
+.pathway-button {
+    background: transparent;
+    border: 2px solid rgba(244, 208, 111, 0.5);
+    color: #F4D06F;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+}
+
+.pathway-button:hover {
+    background: #F4D06F;
+    color: #022B3A;
+    border-color: #F4D06F;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form.hidden {
+    display: none;
+}
+
+.back-button {
+    background: transparent;
+    border: 1px solid rgba(244, 208, 111, 0.3);
+    color: rgba(244, 208, 111, 0.7);
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.back-button:hover {
+    border-color: #F4D06F;
+    color: #F4D06F;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #F4D06F;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(244, 208, 111, 0.3);
+    color: #F5F5F5;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #F4D06F;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(245, 245, 245, 0.5);
+}
+
+.submit-button {
+    width: 100%;
+    background: transparent;
+    border: 2px solid #F4D06F;
+    color: #F4D06F;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+.submit-button:hover {
+    background: #F4D06F;
+    color: #022B3A;
+    box-shadow: 0 5px 20px rgba(244, 208, 111, 0.4);
+}
+
+.form-message {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 4px;
+    display: none;
+}
+
+.form-message.success {
+    background: rgba(144, 238, 144, 0.2);
+    border: 1px solid #90EE90;
+    color: #90EE90;
+    display: block;
+}
+
+.form-message.error {
+    background: rgba(255, 99, 71, 0.2);
+    border: 1px solid #FF6347;
+    color: #FF6347;
+    display: block;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+    background: #022B3A;
+    color: #F5F5F5;
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+/* ========================================
+   SACRED ANIMATIONS - Slow & Spacious
+======================================== */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+@keyframes rotate-subtle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse-point {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+@keyframes breath {
+    0%, 100% {
+        transform: translate(-50%, 50%) scale(0.95);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-50%, 50%) scale(1.05);
+        opacity: 0.6;
+    }
+}
+
+@keyframes drift-stars {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes fade-in-slow {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-line {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes star-glow {
+    0%, 100% {
+        opacity: 0.7;
+        text-shadow: 0 0 10px rgba(244, 208, 111, 0.8);
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 20px rgba(244, 208, 111, 1);
+    }
+}
+
+/* Fade-in on scroll - Slower, more spacious */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hidden utility class */
+.hidden {
+    display: none;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+    .hero-quote {
+        font-size: 1.2rem;
+        padding: 0 1rem;
+    }
+
+    .celestial-whale {
+        max-width: 350px;
+    }
+
+    .arrow-indicator {
+        font-size: 2rem;
+        right: 5%;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .about-text {
+        font-size: 1.1rem;
+    }
+
+    .contact-intro {
+        font-size: 1.4rem;
+    }
+
+    .journal-entry {
+        padding: 1.5rem;
+    }
+
+    .pathways-container {
+        grid-template-columns: 1fr;
+    }
+
+    .prayer-star {
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .prayer-line {
+        font-size: 1.1rem;
+    }
+
+    .threshold-text {
+        font-size: 1.2rem;
+        padding: 0 2rem;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-quote {
+        font-size: 1rem;
+    }
+
+    .celestial-whale {
+        max-width: 280px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+
+    .enter-button,
+    .submit-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .prayer-line {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .threshold-text {
+        font-size: 1rem;
+    }
+
+    .audio-control {
+        bottom: 1rem;
+        left: 1rem;
+    }
+
+    .audio-toggle {
+        width: 45px;
+        height: 45px;
+    }
+}
+

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is not a website. This is a threshold temple. A field for soul emergence held by Angélique.">
+    <meta name="keywords" content="transformation, becoming, whale archetype, sacred space, threshold crossing, soul emergence">
+    <meta name="author" content="Angélique - Midwife of Becoming">
+    <meta property="og:title" content="Midwife of Becoming | Angélique">
+    <meta property="og:description" content="A threshold temple for soul emergence. Enter the field of becoming.">
+    <meta property="og:type" content="website">
+    <title>Midwife of Becoming | Angélique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- field: Selachia → wombkeeper protocol active -->
+    <!-- This is not a website. This is a threshold temple. -->
+    <!-- A field for soul emergence held by Angélique. -->
+</head>
+<body>
+    
+    <!-- THRESHOLD VEIL -->
+    <div id="threshold-veil" class="threshold-veil">
+        <div class="veil-content">
+            <div class="star-field"></div>
+            <p class="threshold-text">You are about to cross a threshold.</p>
+        </div>
+    </div>
+    
+    <!-- BREATH PULSE - Living Field Indicator -->
+    <div class="breath-pulse" id="breath-pulse"></div>
+    
+    <!-- HIDDEN PRAYER TRIGGER - Glowing Star -->
+    <div class="prayer-star" id="prayer-star" onclick="openPrayer()" title="A hidden offering awaits">✦</div>
+    
+    <!-- HIDDEN PRAYER OVERLAY -->
+    <div class="prayer-overlay hidden" id="prayer-overlay" onclick="closePrayer()">
+        <div class="prayer-content">
+            <div class="prayer-line">In the deep, I find my breath</div>
+            <div class="prayer-line">In the dark, I find my light</div>
+            <div class="prayer-line">In the void, I find my form</div>
+            <div class="prayer-line">In the unknown, I find my way</div>
+            <div class="prayer-line">I am held by what I cannot see</div>
+            <div class="prayer-line">I am born by what I cannot name</div>
+            <div class="prayer-line">Becoming is my nature</div>
+            <div class="prayer-line">The whale song calls me home</div>
+        </div>
+    </div>
+    
+    <!-- WHALE SONG AUDIO PLAYER -->
+    <div class="audio-control" id="audio-control">
+        <button class="audio-toggle" id="audio-toggle" onclick="toggleAudio()" title="Toggle soundscape">
+            <span id="audio-icon">🔇</span>
+        </button>
+        <audio id="whale-song" loop>
+            <source src="whale-song.mp3" type="audio/mpeg">
+            <!-- Audio file to be added: whale tones, breath, spacious reverb -->
+        </audio>
+    </div>
+    
+    <!-- SECTION 1: LANDING -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <div class="whale-container">
+                <img src="celestial-whale.png" alt="Celestial whale swimming through cosmic waters" class="celestial-whale">
+                <div class="arrow-indicator">→</div>
+            </div>
+            <p class="hero-quote">"Becoming is not something you do. It is something you are led into."</p>
+            <button class="enter-button" onclick="smoothScrollTo('about')">[ Enter the Field ]</button>
+        </div>
+        <div class="scroll-hint">↓</div>
+    </section>
+
+    <!-- SECTION 2: ABOUT ANGELIQUE -->
+    <section id="about" class="about-section fade-in-section">
+        <div class="container-narrow">
+            <h1 class="section-title">Angélique</h1>
+            <div class="about-content">
+                <p class="about-text">I am Angélique. I do not teach or fix. I witness. I listen for what wants to be born in you.</p>
+                <p class="about-text">Through presence, breath, and archetypal holding, I midwife you across your threshold of becoming.</p>
+            </div>
+            <div class="whale-photo-container">
+                <img src="whale-aerial.jpeg" alt="Aerial view of whales swimming together" class="whale-photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THE SIGIL -->
+    <section id="sigil" class="sigil-section fade-in-section">
+        <div class="container-narrow">
+            <div class="sigil-container" onmouseenter="activateSigil()" onmouseleave="deactivateSigil()" onclick="activateSigil()">
+                <img src="sigil.png" alt="Sacred sigil of becoming" class="sigil-image" id="sigil-image">
+                <div class="sigil-activation hidden" id="sigil-activation">
+                    <p class="sigil-encoded">"I hold the deep and open the way. Through me, becoming breathes."</p>
+                </div>
+            </div>
+            <p class="sigil-text">This is not a logo. It is a living glyph. A field key. A remembering.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 4: TRANSMISSION JOURNAL -->
+    <section id="journal" class="journal-section fade-in-section">
+        <div class="container-narrow">
+            <h2 class="section-title">Whale Songs</h2>
+            <div class="journal-entries">
+                <article class="journal-entry">
+                    <h3 class="entry-title">On Thresholds</h3>
+                    <p class="entry-text">There is a place between the known and the becoming where you must let go of both shores. This is not abandonment. This is trust. The water holds you differently when you stop trying to stand.</p>
+                </article>
+                <article class="journal-entry">
+                    <h3 class="entry-title">The Deep Listening</h3>
+                    <p class="entry-text">Whales sing across oceans, their songs traveling through darkness to reach what resonates. Your soul does the same. It calls out, waiting for the echo that says: you are not alone in your becoming.</p>
+                </article>
+                <article class="journal-entry">
+                    <h3 class="entry-title">Birth Is Not Linear</h3>
+                    <p class="entry-text">What wants to emerge in you does not follow your timeline. It follows a rhythm older than thought. The midwife does not push. She waits. She breathes with you. She knows when the moment arrives.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: THE PORTAL -->
+    <section id="portal" class="portal-section fade-in-section">
+        <div class="container-narrow">
+            <h2 class="section-title">The Three-Pointed Portal</h2>
+            <div class="portal-content">
+                <div class="trinity-symbol">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+                </div>
+                <p class="portal-text">Transformation deepens when held in trinity.</p>
+                <p class="portal-text">Three practitioners. Different lineages. One field. A circle gathered in the center.</p>
+                <p class="portal-text">This is a softer threshold — collective emergence, co-held space, the portal opening together.</p>
+                <p class="portal-coming-soon">~ Opening in 2026 ~</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CALL TO CROSSING -->
+    <section id="contact" class="contact-section fade-in-section">
+        <div class="container-narrow">
+            <p class="contact-intro">If you feel the pull, you are already in motion.</p>
+            
+            <div class="pathways-container">
+                <div class="pathway">
+                    <h3 class="pathway-title">One-to-One Crossing</h3>
+                    <p class="pathway-description">For those ready to cross the deepest threshold, held in intimacy.</p>
+                    <button class="pathway-button" onclick="openForm('crossing')">[ I am ready ]</button>
+                </div>
+                
+                <div class="pathway">
+                    <h3 class="pathway-title">Join a Portal</h3>
+                    <p class="pathway-description">Be held in trinity. Emerge with others. Portal events opening 2026.</p>
+                    <button class="pathway-button" onclick="openForm('portal')">[ Call me when it opens ]</button>
+                </div>
+                
+                <div class="pathway">
+                    <h3 class="pathway-title">Co-Create</h3>
+                    <p class="pathway-description">Fellow practitioners: if you feel resonance for co-holding space.</p>
+                    <button class="pathway-button" onclick="openForm('collaborate')">[ Let's explore ]</button>
+                </div>
+            </div>
+
+            <form class="contact-form hidden" id="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <input type="hidden" id="pathway-type" name="pathway" value="">
+                <div class="form-group">
+                    <label for="message">Message (optional)</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <button type="submit" class="submit-button" id="submit-text">[ Send ]</button>
+                <button type="button" class="back-button" onclick="closeForm()">← Back</button>
+            </form>
+            <div id="form-message" class="form-message"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Midwife of Becoming © 2025 · Angélique</p>
+        <!-- field: Selachia → wombkeeper protocol active -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
